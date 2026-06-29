@@ -1,5 +1,7 @@
 # bottle
 
+[![CI](https://github.com/pjmj/bottle/actions/workflows/ci.yml/badge.svg)](https://github.com/pjmj/bottle/actions/workflows/ci.yml)
+
 A miniature compute-job orchestration platform — submit a command as a job, have
 it run on a backend worker pool, and watch its logs stream live. It's the same
 shape as a cloud ML platform (a CLI and web UI driving an API that schedules and
