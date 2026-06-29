@@ -35,7 +35,7 @@ func newSQLiteStore(t *testing.T) *sqlite.Store {
 	if err != nil {
 		t.Fatalf("sqlite.New: %v", err)
 	}
-	t.Cleanup(func() { st.Close() })
+	t.Cleanup(func() { _ = st.Close() })
 	return st
 }
 

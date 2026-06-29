@@ -6,6 +6,14 @@ version: "2"
 linters:
   enable:
     - misspell # catches typos in comments and strings
+  settings:
+    errcheck:
+      # Writing to stdout/stderr/a terminal can't meaningfully fail and there's
+      # nothing useful to do with the error, so don't require checking it.
+      exclude-functions:
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln
 
 formatters:
   enable:

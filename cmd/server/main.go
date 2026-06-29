@@ -36,7 +36,7 @@ func main() {
 		logger.Error("open store", "err", err)
 		os.Exit(1)
 	}
-	defer st.Close()
+	defer func() { _ = st.Close() }()
 
 	// The in-memory log broker: captures job output and fans it out to live
 	// subscribers. Shared between the scheduler (producer) and API (consumer).

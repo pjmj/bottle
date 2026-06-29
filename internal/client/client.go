@@ -52,7 +52,7 @@ func (c *Client) Submit(ctx context.Context, command string) (*job.Job, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusCreated {
 		return nil, errorFrom(resp)
@@ -66,7 +66,7 @@ func (c *Client) List(ctx context.Context) ([]*job.Job, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return nil, errorFrom(resp)
@@ -84,7 +84,7 @@ func (c *Client) Get(ctx context.Context, id string) (*job.Job, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return nil, errorFrom(resp)
@@ -100,7 +100,7 @@ func (c *Client) StreamLogs(ctx context.Context, id string, out io.Writer) error
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return errorFrom(resp)
