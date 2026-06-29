@@ -1,0 +1,9 @@
+# Normalize line endings: store text files as LF in the repository and check
+# them out as LF everywhere, so diffs stay clean across Windows/Linux/macOS and
+# the CI runners see exactly what's committed.
+* text=auto eol=lf
+
+# Binary assets must not be EOL-converted.
+*.png binary
+*.jpg binary
+*.ico binary
