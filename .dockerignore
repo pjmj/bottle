@@ -1,0 +1,10 @@
+# Keep the build context small and avoid copying host artifacts into the image.
+.git
+.github
+**/node_modules
+web/dist
+*.db
+*.db-journal
+bin
+*.exe
+README.md

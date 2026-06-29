@@ -1,0 +1,19 @@
+# golangci-lint v2 configuration.
+# The default linters (errcheck, govet, ineffassign, staticcheck, unused) are
+# already enabled; we add a couple more and wire up the formatters.
+version: "2"
+
+linters:
+  enable:
+    - misspell # catches typos in comments and strings
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      # Keep imports of this module in their own group, matching the
+      # std / third-party / local ordering used throughout the codebase.
+      local-prefixes:
+        - github.com/pjmj/bottle
