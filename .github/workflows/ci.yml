@@ -26,9 +26,10 @@ jobs:
         run: go test -race ./...
 
       - name: Lint
-        # v8+ of the action is required for golangci-lint v2 (our .golangci.yml
-        # uses `version: "2"`); the older v6 action targets golangci-lint v1.
-        uses: golangci/golangci-lint-action@v8
+        # v9 supports golangci-lint v2 (our .golangci.yml uses `version: "2"`)
+        # and runs on the Node 24 runtime; v6 targeted golangci-lint v1 and
+        # v8 still ran on the deprecated Node 20.
+        uses: golangci/golangci-lint-action@v9
         with:
           version: latest
 
